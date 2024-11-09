@@ -37,7 +37,7 @@ const SOSButton = () => {
         await $api.put(`users/${localStorage.getItem("id")}/position`, { lng: location?.lng, lat: location?.lat })
             .finally(() =>
                 $api.post("sos/create", { uid: localStorage.getItem("id"), lng: location?.longitude, lat: location?.latitude })
-                    .then((res) => sessionStorage.setItem("sos", JSON.stringify(res.data.sos)))
+                    .then((res) => localStorage.setItem("sos", JSON.stringify(res.data.sos)))
             ).finally(() =>
                 router.push("map")
             )

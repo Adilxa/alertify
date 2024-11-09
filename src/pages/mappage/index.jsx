@@ -236,7 +236,7 @@ const MapPage = () => {
 
     const getNear = async () => {
         try {
-            const data = JSON.parse(sessionStorage.getItem("sos"));
+            const data = JSON.parse(localStorage.getItem("sos"));
             const res = await $api.post("/police/nearest", {
                 sosId: data.id,
                 lat: data.lat,
@@ -262,7 +262,7 @@ const MapPage = () => {
         bottom: 0
     };
 
-    const data = JSON.parse(sessionStorage.getItem("sos"));
+    const data = JSON.parse(localStorage.getItem("sos"));
 
     const [center, setCenter] = useState({
         lat: data.lat,
